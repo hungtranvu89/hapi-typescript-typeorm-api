@@ -1,0 +1,90 @@
+{
+  "name": "another-hapi-typescript",
+  "license": "MIT",
+  "tags": [
+    "typescript",
+    "hapi",
+    "jest",
+    "mysql"
+  ],
+  "engines": {
+    "node": "10",
+    "yarn": "1.12"
+  },
+  "scripts": {
+    "start": "node --require dotenv/config ./build/index.js",
+    "build": "tsc --project tsconfig.json",
+    "dev": "ts-node-dev --project tsconfig.json --respawn --transpileOnly --require dotenv/config ./src/index",
+    "prettier": "prettier --write \"./src/**/*.ts\"",
+    "lint": "tslint --project tsconfig.json -c tslint.json",
+    "lint:fix": "yarn lint --fix",
+    "test": "jest --config ./jest.config.js --bail"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "[!tests]/*[!test].ts": [
+      "yarn lint:fix",
+      "git add"
+    ],
+    "*.ts": [
+      "yarn prettier",
+      "git add"
+    ]
+  },
+  "jest": {
+    "moduleDirectories": [
+      "node_modules",
+      "app"
+    ],
+    "moduleFileExtensions": [
+      "ts",
+      "js"
+    ]
+  },
+  "devDependencies": {
+    "@types/bcryptjs": "^2.4.2",
+    "@types/boom": "^7.2.1",
+    "@types/hapi": "^17.8.0",
+    "@types/jest": "^23.3.10",
+    "@types/jsonwebtoken": "^8.3.0",
+    "@types/sqlite3": "^3.1.3",
+    "dotenv": "^6.1.0",
+    "husky": "^1.2.0",
+    "jest": "^23.6.0",
+    "jwt-decode": "^2.2.0",
+    "lint-staged": "^8.1.0",
+    "prettier": "^1.15.3",
+    "sqlite3": "^4.0.4",
+    "ts-jest": "^23.10.5",
+    "ts-node-dev": "^1.0.0-pre.31",
+    "tslint": "^5.11.0",
+    "tslint-config-airbnb": "^5.11.1",
+    "tslint-config-prettier": "^1.17.0",
+    "typescript": "^3.2.1"
+  },
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "boom": "^7.3.0",
+    "date-fns": "^1.29.0",
+    "good": "^8.1.1",
+    "good-console": "^7.1.0",
+    "good-squeeze": "^5.1.0",
+    "hapi": "^17.8.1",
+    "hapi-auth-jwt2": "^8.2.0",
+    "hapi-swagger": "^9.1.3",
+    "hoek": "^6.1.2",
+    "inert": "^5.1.2",
+    "joi": "^14.3.0",
+    "jsonwebtoken": "^8.4.0",
+    "key-mirror-nested": "^1.3.0",
+    "rambda": "^1.2.6",
+    "reflect-metadata": "^0.1.12",
+    "rotating-file-stream": "^1.3.9",
+    "typeorm": "^0.2.9",
+    "vision": "^5.4.3"
+  }
+}

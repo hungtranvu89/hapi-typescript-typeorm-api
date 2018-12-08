@@ -1,0 +1,15 @@
+
+node_modules
+build
+
+.vscode
+
+*.log
+
+.env
+
+coverage
+
+test_db
+
+*.db
