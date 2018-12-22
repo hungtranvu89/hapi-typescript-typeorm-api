@@ -18,8 +18,9 @@ const drop2 = dropLast(2) // drop /_
 const routes = keyMirror(constants, {
   connChar: '/',
   custFunc: (oldVal: string, newVal: string) => {
-    if (newVal[0] !== '/') newVal = '/' + newVal
-    return oldVal !== '_' ? newVal : drop2(newVal)
+    const next = newVal[0] !== '/' ? `/${newVal}` : newVal
+
+    return oldVal !== '_' ? next : drop2(next)
   }
 })
 

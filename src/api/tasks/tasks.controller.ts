@@ -58,7 +58,7 @@ const TaskControllerCreator: ControllerCreator<
   getTaskById: ({ repository: { findUserTaskById } }) => async (request, h) => {
     const userId = getCredentialId(request)
     if (!userId) throw badRequest()
-    const task = await findUserTaskById(userId, request.params.id)
+    const task = await findUserTaskById(userId, Number(request.params.id))
     if (!task) throw notFound()
 
     return task
@@ -68,7 +68,7 @@ const TaskControllerCreator: ControllerCreator<
     if (!userId) throw badRequest()
     const task = await updateUserTask(
       userId,
-      request.params.id,
+      Number(request.params.id),
       request.payload
     )
     if (!task) throw notFound()
@@ -78,7 +78,7 @@ const TaskControllerCreator: ControllerCreator<
   deleteTask: ({ repository: { deleteUserTask } }) => async (request, h) => {
     const userId = getCredentialId(request)
     if (!userId) throw badRequest()
-    const task = await deleteUserTask(userId, request.params.id)
+    const task = await deleteUserTask(userId, Number(request.params.id))
     if (!task) throw notFound()
 
     return task

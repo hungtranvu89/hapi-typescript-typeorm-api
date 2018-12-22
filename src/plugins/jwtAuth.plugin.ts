@@ -21,7 +21,7 @@ interface IController {
   }>
 }
 
-const getDecodedId = path<string>(['id'])
+const getDecodedId = path<number>(['id'])
 
 const controllerCreator: ControllerCreator<IOptions, IController> = {
   validateDecodedUser: ({ repository: { checkUserById } }) => async (

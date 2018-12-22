@@ -1,7 +1,7 @@
 import constants from '../../constants'
 import { ISwaggerConfiguration } from '../../plugins/swagger.plugin'
 import tags from '../../tags'
-import { IRouteCreator, buildRoutes } from '../../utils'
+import { buildRoutes, IRouteCreator } from '../../utils'
 import Routes from '../Routes'
 import { ITaskController } from './tasks.controller'
 

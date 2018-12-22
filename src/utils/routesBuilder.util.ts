@@ -1,4 +1,4 @@
-import { Util, ServerRoute } from 'hapi'
+import { ServerRoute, Util } from 'hapi'
 
 interface IRoutesSchema {
   [path: string]: {
@@ -18,5 +18,6 @@ export const buildRoutes = (schema: IRoutesSchema) => {
       })
     })
   })
+
   return routes
 }

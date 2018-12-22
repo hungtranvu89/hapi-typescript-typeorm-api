@@ -26,14 +26,14 @@
     }
   },
   "lint-staged": {
-    "[!tests]/*[!test].ts": [
-      "yarn lint:fix",
-      "git add"
-    ],
-    "*.ts": [
-      "yarn prettier",
-      "git add"
-    ]
+    "linters": {
+      "*.ts": [
+        "yarn lint:fix",
+        "yarn prettier",
+        "git add"
+      ]
+    },
+    "ignore": ["*.test.ts","**/tests"]
   },
   "jest": {
     "moduleDirectories": [

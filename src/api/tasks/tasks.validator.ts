@@ -10,7 +10,7 @@ export const getTaskByIdSchema = {
 
 export interface IGetTaskByIdRequest extends Request {
   params: {
-    id: number
+    id: string // param like query string: always string
   }
 }
 
